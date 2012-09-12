@@ -27,6 +27,7 @@ public:
 signals:
     void stderrChanged(QString mytext);
     void stdoutChanged(QString mytext);
+    void extractionDone(int value);
 
 
 public slots:

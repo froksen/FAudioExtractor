@@ -23,7 +23,9 @@ private slots:
     void on_pushButton_clicked();
 
 private slots:
+    void handleTerminaloutput(QString text);
     void doExtraction();
+    void on_checkBox_stateChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;

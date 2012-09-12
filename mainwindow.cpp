@@ -23,6 +23,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Fixes so no outputdir is shown as default
     ui->lineEdit_outputfile->clear();
+
+    //Hides the outputTextfield
+    on_checkBox_stateChanged(0);
 }
 
 MainWindow::~MainWindow()
@@ -75,6 +78,9 @@ void MainWindow::on_pushButton_outputfile_clicked()
 void MainWindow::on_comboBox_outputfile_currentIndexChanged(const QString &arg1)
 {
     mSoundFile->setFormat(arg1);
+    if(ui->lineEdit_inputfile->text().isEmpty()) {
+        return;
+    }
     ui->lineEdit_outputfile->setText(QString("%1/%2.%3").arg(mSoundFile->Outputdirectory(), mSoundFile->Filename(),mSoundFile->Format()));
 }
 
@@ -83,9 +89,33 @@ void MainWindow::on_pushButton_clicked()
     doExtraction();
 }
 
+void MainWindow::handleTerminaloutput(QString text)
+{
+//    QRegExp rx("(\\d+)");
+//    QStringList list;
+
+
+//    qDebug() << "!!!!!!!!!!!!!!!!!!!!!!!!!!";
+//    int pos = 0;
+
+//    while ((pos = rx.indexIn(text, pos)) != -1) {
+//        list << rx.cap(1);
+//        pos += rx.matchedLength();
+//    }
+//    qDebug() << list;
+//    qDebug() << "!!!!!!!!!!!!!!!!!!!!!!!!!!";
+
+    if(text.left(4) == "dump")
+    {
+        ui->progressBar->setValue(text.right(9).remove(0,2).remove(4,100).toFloat());
+    }
+
+}
+
 void MainWindow::doExtraction()
 {
     process *mProcess = new process(this);
+    ui->progressBar->setValue(0);
 
     //Sets the arguments
     QStringList arguments;
@@ -99,9 +129,24 @@ void MainWindow::doExtraction()
 
     connect(mProcess,SIGNAL(stderrChanged(QString)),ui->textEdit,SLOT(append(QString)));
     connect(mProcess,SIGNAL(stdoutChanged(QString)),ui->textEdit,SLOT(append(QString)));
+    connect(mProcess,SIGNAL(stdoutChanged(QString)),this,SLOT(handleTerminaloutput(QString)));
+    connect(mProcess,SIGNAL(extractionDone(int)),ui->progressBar,SLOT(setValue(int)));
+    connect(mProcess,SIGNAL(extractionDone(QString)),mProcess,SLOT(deleteLater()));
 
 
     //Puts it all together
     mProcess->setArguments(arguments);
     mProcess->startCommand();
+
+    ui->progressBar->setValue(10);
+}
+
+void MainWindow::on_checkBox_stateChanged(int arg1)
+{
+    if(arg1 == 0) {
+        ui->textEdit->hide();
+    }
+    else {
+        ui->textEdit->show();
+    }
 }

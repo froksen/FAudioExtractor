@@ -46,6 +46,8 @@ void process::onProcessFinished(int exitCode, QProcess::ExitStatus status)
     qDebug() << "Exitcode:" << exitCode;
     qDebug() << "Exitstatus:" << status;
 
+    emit extractionDone(100);
+
     delete mprocess;
     mprocess = NULL;
 }
@@ -73,4 +75,3 @@ void process::stopCommand()
         mprocess->kill();
     }
 }
-
