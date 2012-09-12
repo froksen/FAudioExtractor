@@ -156,6 +156,6 @@ void MainWindow::on_actionAbout_triggered()
 {
     QMessageBox mssg;
     mssg.setStandardButtons(QMessageBox::Ok);
-    mssg.setText("Created by Ole 'froksen' Holm Frandsen <br> Released under the GPLv2 license");
+    mssg.setText("Created by Ole 'Froksen' Holm Frandsen <br> Released under the GPLv2 license");
     mssg.exec();
 }
