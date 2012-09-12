@@ -5,6 +5,7 @@
 #include <QStringListModel>
 #include <QFileDialog>
 #include <modules/process.h>
+#include <QtCore>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -71,8 +72,6 @@ void MainWindow::on_pushButton_outputfile_clicked()
     }
 }
 
-
-
 void MainWindow::on_comboBox_outputfile_currentIndexChanged(const QString &arg1)
 {
     mSoundFile->setFormat(arg1);
@@ -98,8 +97,11 @@ void MainWindow::doExtraction()
     //Sets the program
     mProcess->setCommand("mplayer");
 
+    connect(mProcess,SIGNAL(stderrChanged(QString)),ui->textEdit,SLOT(append(QString)));
+    connect(mProcess,SIGNAL(stdoutChanged(QString)),ui->textEdit,SLOT(append(QString)));
+
+
     //Puts it all together
     mProcess->setArguments(arguments);
     mProcess->startCommand();
-
 }

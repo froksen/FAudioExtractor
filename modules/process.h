@@ -21,12 +21,19 @@ public:
 
     void setCommand(QString newCommand);
     void setArguments(QStringList newArguments);
-    void startCommand();
+    bool startCommand();
     void stopCommand();
 
+signals:
+    void stderrChanged(QString mytext);
+    void stdoutChanged(QString mytext);
+
+
+public slots:
+
 private slots:
-    void readstdout();
     void readstderr();
+    void readstdout();
     void onProcessFinished(int exitCode, QProcess::ExitStatus status);
 
 

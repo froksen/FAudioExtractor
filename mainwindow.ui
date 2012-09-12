@@ -98,6 +98,9 @@
      </layout>
     </item>
     <item>
+     <widget class="QTextEdit" name="textEdit"/>
+    </item>
+    <item>
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>

@@ -8,7 +8,7 @@ process::process(QObject *parent) :
 {
 }
 
-void process::startCommand()
+bool process::startCommand()
 {
     //Creates the new process.
     mprocess = new QProcess();
@@ -27,6 +27,9 @@ void process::readstdout()
 {
     stdoutdata = mprocess->readAllStandardOutput();
     qDebug() << "Standard output:" << stdoutdata;
+
+    emit stdoutChanged(stdoutdata);
+
 }
 
 
@@ -34,6 +37,8 @@ void process::readstderr()
 {
     stderrdata = mprocess->readAllStandardError();
     qDebug() << "Standard Error:" << stderrdata;
+
+    emit stderrChanged(stderrdata);
 }
 
 void process::onProcessFinished(int exitCode, QProcess::ExitStatus status)
