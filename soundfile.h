@@ -26,10 +26,10 @@ public:
 
 private:
     //Information about the file
-    QString filename;
+    QString filename = "myaudiofile";
     QString inputvideofile;
     QString format = "mp3";
-    QString directoryoutput;
+    QString directoryoutput = QDir::homePath();
 
     //Other
     QStringList supportformatslist;

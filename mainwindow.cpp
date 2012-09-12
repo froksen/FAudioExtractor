@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QStringListModel>
 #include <QFileDialog>
+#include <modules/process.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,6 +19,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QStringListModel *supportedformatsmodel = new QStringListModel(this);
     supportedformatsmodel->setStringList(mSoundFile->Supportedformats());
     ui->comboBox_outputfile->setModel(supportedformatsmodel);
+
+    //Fixes so no outputdir is shown as default
+    ui->lineEdit_outputfile->clear();
 }
 
 MainWindow::~MainWindow()
@@ -51,7 +55,7 @@ void MainWindow::on_pushButton_inputfile_clicked()
 void MainWindow::on_pushButton_outputfile_clicked()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save"),
-                                                    QDir::homePath() + "/" + mSoundFile->inputfileFilename() + "." + mSoundFile->Format(),
+                                                    mSoundFile->Outputdirectory() + "/" + mSoundFile->inputfileFilename() + "." + mSoundFile->Format(),
                                "Soundfiles (*.mp3 *.ogg *.wav *.wma *.flac *.aac)");
 
     if(!fileName.isEmpty()){
@@ -73,4 +77,29 @@ void MainWindow::on_comboBox_outputfile_currentIndexChanged(const QString &arg1)
 {
     mSoundFile->setFormat(arg1);
     ui->lineEdit_outputfile->setText(QString("%1/%2.%3").arg(mSoundFile->Outputdirectory(), mSoundFile->Filename(),mSoundFile->Format()));
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    doExtraction();
+}
+
+void MainWindow::doExtraction()
+{
+    process *mProcess = new process(this);
+
+    //Sets the arguments
+    QStringList arguments;
+    arguments << "-dumpaudio";
+    arguments << mSoundFile->Inputvideofile();
+    arguments << "-dumpfile";
+    arguments << mSoundFile->Outputdirectory() + "/" + mSoundFile->Filename() + "." + mSoundFile->Format();
+
+    //Sets the program
+    mProcess->setCommand("mplayer");
+
+    //Puts it all together
+    mProcess->setArguments(arguments);
+    mProcess->startCommand();
+
 }
