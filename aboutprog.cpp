@@ -2,8 +2,8 @@
 #include "ui_aboutprog.h"
 #include <QDesktopWidget>
 
-AboutProg::AboutProg(QWidget *parent) :
-    QWidget(parent),
+AboutProg::AboutProg(QDialog *parent) :
+    QDialog(parent),
     ui(new Ui::AboutProg)
 {
     ui->setupUi(this);
@@ -25,21 +25,10 @@ AboutProg::~AboutProg()
 void AboutProg::appendTranslators()
 {
     ui->textEdit_2->append(trUtf8("Danish - Ole 'Froksen' Holm Frandsen"));
-    ui->textEdit_2->append(trUtf8("German - Chris 'saftsocken' Räss"));
-    ui->textEdit_2->append(trUtf8("Spanish - Javi"));
-    ui->textEdit_2->append(trUtf8("Italian - Symbian flo"));
-    ui->textEdit_2->append(trUtf8("Romanian - Mamut R. Ghiunhan (aka V3n3RiX)"));
 
 }
 
 void AboutProg::appendSpecialThanks()
 {
-    ui->textEditThanks->append("3electrons");
-    ui->textEditThanks->append("kalac");
-    ui->textEditThanks->append("swiftscythe");
-    ui->textEditThanks->append("jboss1995");
-    ui->textEditThanks->append("undefined");
-    ui->textEditThanks->append("symbianflo");
-    ui->textEditThanks->append(trUtf8("Mamut R. Ghiunhan (aka V3n3RiX)"));
 
 }

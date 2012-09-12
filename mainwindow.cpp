@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <modules/process.h>
 #include <QtCore>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -149,4 +150,12 @@ void MainWindow::on_checkBox_stateChanged(int arg1)
     else {
         ui->textEdit->show();
     }
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox mssg;
+    mssg.setStandardButtons(QMessageBox::Ok);
+    mssg.setText("Created by Ole 'froksen' Holm Frandsen <br> Released under the GPLv2 license");
+    mssg.exec();
 }

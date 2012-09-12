@@ -21,4 +21,4 @@ HEADERS  += mainwindow.h \
             modules/process.h \
     soundfile.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \

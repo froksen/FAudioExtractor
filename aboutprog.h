@@ -7,12 +7,12 @@ namespace Ui {
     class AboutProg;
 }
 
-class AboutProg : public QWidget
+class AboutProg : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AboutProg(QWidget *parent = 0);
+    explicit AboutProg(QDialog *parent = 0);
     ~AboutProg();
 
 private:

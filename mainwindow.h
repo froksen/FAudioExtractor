@@ -27,6 +27,8 @@ private slots:
     void doExtraction();
     void on_checkBox_stateChanged(int arg1);
 
+    void on_actionAbout_triggered();
+
 private:
     Ui::MainWindow *ui;
 
