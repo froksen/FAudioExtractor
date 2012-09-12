@@ -16,15 +16,15 @@ public:
     QString Format();
     void setOutputdirectory(QString outputdir = QDir::homePath());
     QString Outputdirectory();
-    void setInputdirectory(QString inputdir);
-    QString Inputdirectory();
+    void setInputvideofile(QString inputdir);
+    QString Inputvideofile();
 
 
 private:
     QString filename;
+    QString inputvideofile;
     QString format;
     QString directoryoutput;
-    QString directoryinput;
 
 signals:
     

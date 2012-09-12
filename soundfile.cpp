@@ -35,12 +35,12 @@ QString SoundFile::Outputdirectory()
     return directoryoutput;
 }
 
-void SoundFile::setInputdirectory(QString inputdir)
+void SoundFile::setInputvideofile(QString Inputvideofile)
 {
-    directoryinput = inputdir;
+    inputvideofile = Inputvideofile;
 }
 
-QString SoundFile::Inputdirectory()
+QString SoundFile::Inputvideofile()
 {
-    return directoryinput;
+    return inputvideofile;
 }
