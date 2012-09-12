@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "soundfile.h"
 
 namespace Ui {
 class MainWindow;
@@ -15,8 +16,19 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     
+private slots:
+    void on_pushButton_inputfile_clicked();
+
+    void on_pushButton_outputfile_clicked();
+
+
+    void on_comboBox_outputfile_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
+
+    SoundFile *mSoundFile;
+
 };
 
 #endif // MAINWINDOW_H
