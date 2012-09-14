@@ -14,6 +14,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //Makes sure the window is in the center of desktop
+    QRect r = MainWindow::geometry();
+    r.moveCenter(QApplication::desktop()->availableGeometry().center());
+    MainWindow::setGeometry(r);
+
     //Creates the pointer for the SoundFile class
     mSoundFile = new SoundFile(this);
 
@@ -45,6 +50,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(mProcess,SIGNAL(stderrChanged(QString)),ui->pushButton_2,SLOT(show()));
     connect(mProcess,SIGNAL(stdoutChanged(QString)),ui->pushButton,SLOT(hide()));
     connect(mProcess,SIGNAL(stdoutChanged(QString)),ui->pushButton_2,SLOT(show()));
+
+    connect(mProcess,SIGNAL(stdoutChanged(QString)),ui->comboBox_outputfile,SLOT(hide()));
+    connect(mProcess,SIGNAL(stderrChanged(QString)),ui->comboBox_outputfile,SLOT(show()));
+
 
     //When done
     connect(mProcess,SIGNAL(extractionDone(int)),ui->pushButton,SLOT(show()));
