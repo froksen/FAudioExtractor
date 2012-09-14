@@ -15,10 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
         modules/process.cpp \
+        aboutdialog.cpp \
     soundfile.cpp
 
 HEADERS  += mainwindow.h \
             modules/process.h \
+            aboutdialog.h \
     soundfile.h
 
 FORMS    += mainwindow.ui \
+            aboutdialog.ui

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "soundfile.h"
 #include <modules/process.h>
+#include "aboutdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -27,17 +28,21 @@ private slots:
     void handleTerminaloutput(QString text);
     void doExtraction();
     void on_checkBox_stateChanged(int arg1);
-
     void on_actionAbout_triggered();
-
     void on_pushButton_2_clicked();
+
+signals:
+    bool inputLineEdithasText(bool);
+    bool outputLineEdithasText(bool);
+
 
 private:
     Ui::MainWindow *ui;
 
     SoundFile *mSoundFile;
-
     process *mProcess;
+
+    AboutDialog *mAboutdialog;
 
 };
 

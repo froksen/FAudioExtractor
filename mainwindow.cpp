@@ -7,6 +7,7 @@
 #include <QtCore>
 #include <QMessageBox>
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -30,6 +31,15 @@ MainWindow::MainWindow(QWidget *parent) :
     //Pusbuttons Connections
     mProcess = new process(this);
 
+    //About dialog
+    mAboutdialog = new AboutDialog();
+
+    //Hides forcestop button
+    ui->pushButton->setEnabled(0);
+    ui->pushButton_2->hide();
+
+    connect(this,SIGNAL(inputLineEdithasText(bool)),ui->pushButton,SLOT(setEnabled(bool)));
+
     //While working
     connect(mProcess,SIGNAL(stderrChanged(QString)),ui->pushButton,SLOT(hide()));
     connect(mProcess,SIGNAL(stderrChanged(QString)),ui->pushButton_2,SLOT(show()));
@@ -39,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //When done
     connect(mProcess,SIGNAL(extractionDone(int)),ui->pushButton,SLOT(show()));
     connect(mProcess,SIGNAL(extractionDone(int)),ui->pushButton_2,SLOT(hide()));
+
 
 }
 
@@ -55,6 +66,9 @@ void MainWindow::on_pushButton_inputfile_clicked()
 
 
     if(!fileName.isEmpty()){
+
+        //emits signal
+        emit inputLineEdithasText(1);
 
         //Sets the new INFO
         ui->lineEdit_inputfile->setText(fileName);
@@ -77,6 +91,8 @@ void MainWindow::on_pushButton_outputfile_clicked()
                                "Soundfiles (*.mp3 *.ogg *.wav *.wma *.flac *.aac)");
 
     if(!fileName.isEmpty()){
+        //Emits signal
+        emit outputLineEdithasText(1);
 
         //Sets the new INFO
         QFileInfo mOutfile (fileName);
@@ -166,10 +182,7 @@ void MainWindow::on_checkBox_stateChanged(int arg1)
 
 void MainWindow::on_actionAbout_triggered()
 {
-    QMessageBox mssg;
-    mssg.setStandardButtons(QMessageBox::Ok);
-    mssg.setText("Created by Ole 'Froksen' Holm Frandsen <br> Released under the GPLv2 license");
-    mssg.exec();
+    mAboutdialog->exec();
 }
 
 void MainWindow::on_pushButton_2_clicked()
