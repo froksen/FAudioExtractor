@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "soundfile.h"
+#include <modules/process.h>
 
 namespace Ui {
 class MainWindow;
@@ -29,10 +30,14 @@ private slots:
 
     void on_actionAbout_triggered();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 
     SoundFile *mSoundFile;
+
+    process *mProcess;
 
 };
 

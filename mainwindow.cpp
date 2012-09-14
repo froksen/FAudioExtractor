@@ -4,7 +4,6 @@
 #include <QDebug>
 #include <QStringListModel>
 #include <QFileDialog>
-#include <modules/process.h>
 #include <QtCore>
 #include <QMessageBox>
 
@@ -27,6 +26,20 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Hides the outputTextfield
     on_checkBox_stateChanged(0);
+
+    //Pusbuttons Connections
+    mProcess = new process(this);
+
+    //While working
+    connect(mProcess,SIGNAL(stderrChanged(QString)),ui->pushButton,SLOT(hide()));
+    connect(mProcess,SIGNAL(stderrChanged(QString)),ui->pushButton_2,SLOT(show()));
+    connect(mProcess,SIGNAL(stdoutChanged(QString)),ui->pushButton,SLOT(hide()));
+    connect(mProcess,SIGNAL(stdoutChanged(QString)),ui->pushButton_2,SLOT(show()));
+
+    //When done
+    connect(mProcess,SIGNAL(extractionDone(int)),ui->pushButton,SLOT(show()));
+    connect(mProcess,SIGNAL(extractionDone(int)),ui->pushButton_2,SLOT(hide()));
+
 }
 
 MainWindow::~MainWindow()
@@ -115,7 +128,6 @@ void MainWindow::handleTerminaloutput(QString text)
 
 void MainWindow::doExtraction()
 {
-    process *mProcess = new process(this);
     ui->progressBar->setValue(0);
 
     //Sets the arguments
@@ -158,4 +170,24 @@ void MainWindow::on_actionAbout_triggered()
     mssg.setStandardButtons(QMessageBox::Ok);
     mssg.setText("Created by Ole 'Froksen' Holm Frandsen <br> Released under the GPLv2 license");
     mssg.exec();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QMessageBox msgBox;    msgBox.setText(trUtf8("Force stop - sure?"));
+    msgBox.setInformativeText(trUtf8("The process can NOT be resumed. The audio that have been extracted might not work."));
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::Save);
+    int ret = msgBox.exec();
+
+
+
+    switch (ret)  {
+      case QMessageBox::Yes:
+            mProcess->stopCommand();
+          break;
+      case QMessageBox::No:
+          break;
+    }
+
 }
