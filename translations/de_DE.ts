@@ -4,16 +4,12 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="../aboutdialog.ui" line="14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../aboutdialog.ui" line="27"/>
         <source>FAudioExtractor</source>
         <translation type="unfinished">FAudioExtractor</translation>
     </message>
     <message>
+        <location filename="../aboutdialog.ui" line="14"/>
         <location filename="../aboutdialog.ui" line="41"/>
         <source>About</source>
         <translation>Über</translation>
@@ -376,8 +372,9 @@ Public License instead of this License.</source>
         <translation type="obsolete">Über FAudioExtractor</translation>
     </message>
     <message>
+        <location filename="../aboutdialog.cpp" line="24"/>
         <source>Translations</source>
-        <translation type="obsolete">Übersetzung</translation>
+        <translation type="unfinished">Übersetzung</translation>
     </message>
     <message>
         <source>OK</source>
@@ -419,6 +416,21 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../aboutdialog.cpp" line="21"/>
         <source>Licensed under</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutdialog.cpp" line="26"/>
+        <source>Danish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutdialog.cpp" line="29"/>
+        <source>Czech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutdialog.cpp" line="32"/>
+        <source>German</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

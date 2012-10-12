@@ -4,16 +4,12 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="../aboutdialog.ui" line="14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../aboutdialog.ui" line="27"/>
         <source>FAudioExtractor</source>
         <translation type="unfinished">FAudioExtractor</translation>
     </message>
     <message>
+        <location filename="../aboutdialog.ui" line="14"/>
         <location filename="../aboutdialog.ui" line="41"/>
         <source>About</source>
         <translation>O programu</translation>
@@ -406,8 +402,9 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.mplayerhq.hu/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.mplayerhq.hu/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
+        <location filename="../aboutdialog.cpp" line="24"/>
         <source>Translations</source>
-        <translation type="obsolete">Překlady</translation>
+        <translation type="unfinished">Překlady</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -437,6 +434,21 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../aboutdialog.cpp" line="21"/>
         <source>Licensed under</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutdialog.cpp" line="26"/>
+        <source>Danish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutdialog.cpp" line="29"/>
+        <source>Czech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../aboutdialog.cpp" line="32"/>
+        <source>German</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

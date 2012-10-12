@@ -4,16 +4,12 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="../aboutdialog.ui" line="14"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../aboutdialog.ui" line="27"/>
         <source>FAudioExtractor</source>
-        <translation type="unfinished">FAudioExtractor</translation>
+        <translation>FAudioExtractor</translation>
     </message>
     <message>
+        <location filename="../aboutdialog.ui" line="14"/>
         <location filename="../aboutdialog.ui" line="41"/>
         <source>About</source>
         <translation>Om</translation>
@@ -21,7 +17,7 @@
     <message>
         <location filename="../aboutdialog.ui" line="55"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licens</translation>
     </message>
     <message>
         <location filename="../aboutdialog.ui" line="67"/>
@@ -364,12 +360,12 @@ proprietary programs.  If your program is a subroutine library, you may
 consider it more useful to permit linking proprietary applications with the
 library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../aboutdialog.ui" line="416"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Luk</translation>
     </message>
     <message>
         <source>About FAudioExtractor</source>
@@ -406,8 +402,9 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.mplayerhq.hu/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.mplayerhq.hu/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
+        <location filename="../aboutdialog.cpp" line="24"/>
         <source>Translations</source>
-        <translation type="obsolete">Oversættelser</translation>
+        <translation>Oversættelser</translation>
     </message>
     <message>
         <source>OK</source>
@@ -416,12 +413,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../aboutdialog.cpp" line="20"/>
         <source>Created by</source>
-        <translation type="unfinished"></translation>
+        <translation>Lavet af</translation>
     </message>
     <message>
         <location filename="../aboutdialog.cpp" line="21"/>
         <source>Licensed under</source>
-        <translation type="unfinished"></translation>
+        <translation>Udgivet under</translation>
+    </message>
+    <message>
+        <location filename="../aboutdialog.cpp" line="26"/>
+        <source>Danish</source>
+        <translation>Dansk</translation>
+    </message>
+    <message>
+        <location filename="../aboutdialog.cpp" line="29"/>
+        <source>Czech</source>
+        <translation>Tjekkisk</translation>
+    </message>
+    <message>
+        <location filename="../aboutdialog.cpp" line="32"/>
+        <source>German</source>
+        <translation>Tysk</translation>
     </message>
 </context>
 <context>
@@ -434,27 +446,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="36"/>
         <source>Input file (The moviefile)</source>
-        <translation type="unfinished"></translation>
+        <translation>Input fil (Filmen)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="67"/>
         <source>Output file (The audiofile)</source>
-        <translation type="unfinished"></translation>
+        <translation>Output fil (Lydfilen)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="94"/>
         <source>Output format</source>
-        <translation type="unfinished"></translation>
+        <translation>Output format</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="154"/>
         <source>Extract audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Udtræk lyd</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="161"/>
         <source>Force stop!</source>
-        <translation type="unfinished"></translation>
+        <translation>Tving stop!</translation>
     </message>
     <message>
         <source>Choose from which movie the sound should be extracted</source>
