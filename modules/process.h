@@ -21,7 +21,7 @@ public:
 
     void setCommand(QString newCommand);
     void setArguments(QStringList newArguments);
-    bool startCommand();
+    void startCommand();
     void stopCommand();
 
 signals:

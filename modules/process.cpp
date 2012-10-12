@@ -8,7 +8,7 @@ process::process(QObject *parent) :
 {
 }
 
-bool process::startCommand()
+void process::startCommand()
 {
     //Creates the new process.
     mprocess = new QProcess();

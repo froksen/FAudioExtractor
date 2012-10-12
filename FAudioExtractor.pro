@@ -25,6 +25,15 @@ HEADERS  += mainwindow.h \
     soundfile.h \
     aboutdialog.h
 
+TRANSLATIONS    = translations/da_DK.ts \
+                  translations/de_DE.ts \
+                  translations/es_ES.ts \
+                  translations/it_IT.ts \
+                  translations/cs_CZ.ts \
+                  translations/ro_RO.ts \
+
 FORMS    += mainwindow.ui \
-            #aboutdialog.ui
-    aboutdialog.ui
+            aboutdialog.ui
+
+RESOURCES += \
+    resource.qrc
