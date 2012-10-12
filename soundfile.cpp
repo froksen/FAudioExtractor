@@ -4,8 +4,19 @@
 SoundFile::SoundFile(QObject *parent) :
     QObject(parent)
 {
+    filename = "myaudiofile";
+    format = "mp3";
+    directoryoutput = QDir::homePath();
+
     //Creates the formatsmodel
     supportformatslist << "mp3" << "ogg" << "wav" << "wma" << "flac" << "aac";
+
+    supportedformatsMap.insert("MPEG-1 Audio Layer 3 (MP3)","mp3");
+    supportedformatsMap.insert("Ogg Vorbis (OGG)","ogg");
+    supportedformatsMap.insert("Waveform Audio File Format (WAV)","wav");
+    supportedformatsMap.insert("Windows Media Audio (WMA)","wma");
+    supportedformatsMap.insert("Free Lossless Audio Codec (FLAC)","flac");
+    //supportedformatsMap.insert("Advanced Audio Coding (AAC)","aac");
 }
 
 void SoundFile::setFilename(QString Filename)
@@ -21,8 +32,9 @@ QString SoundFile::Filename()
 
 int SoundFile::setFormat(QString Format)
 {
-    format = Format;
-    qDebug() << "Format set to:" << format;
+    format = supportedformatsMap.value(Format);
+    qDebug() << "Format name:" << Format;
+    qDebug() << "Format ext:" << format;
 
     if(!supportformatslist.contains(format)){
         return -1;
@@ -65,7 +77,7 @@ QString SoundFile::inputfileFilename()
     return QFileInfo(inputvideofile).baseName();
 }
 
-QStringList SoundFile::Supportedformats()
+QMap<QString,QString> SoundFile::Supportedformats()
 {
-    return supportformatslist;
+    return supportedformatsMap;
 }

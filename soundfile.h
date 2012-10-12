@@ -21,18 +21,22 @@ public:
     QString Inputvideofile();
     QString inputfileFilename();
 
-    QStringList Supportedformats();
+    QMap<QString, QString> Supportedformats();
+
 
 
 private:
     //Information about the file
-    QString filename = "myaudiofile";
+    QString filename;
     QString inputvideofile;
-    QString format = "mp3";
-    QString directoryoutput = QDir::homePath();
+    QString format;
+    QString directoryoutput;
 
     //Other
     QStringList supportformatslist;
+
+    //QMap to handle the formats
+     QMap<QString, QString> supportedformatsMap;
 
 
 

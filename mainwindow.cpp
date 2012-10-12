@@ -23,9 +23,15 @@ MainWindow::MainWindow(QWidget *parent) :
     mSoundFile = new SoundFile(this);
 
     //The types of formats that are supported
-    QStringListModel *supportedformatsmodel = new QStringListModel(this);
-    supportedformatsmodel->setStringList(mSoundFile->Supportedformats());
-    ui->comboBox_outputfile->setModel(supportedformatsmodel);
+//    QStringListModel *supportedformatsmodel = new QStringListModel(this);
+//    supportedformatsmodel->setStringList(mSoundFile->Supportedformats());
+//    ui->comboBox_outputfile->setModel(supportedformatsmodel);
+    QMap <QString,QString> supportedformatsmap = mSoundFile->Supportedformats();
+
+    foreach(QString name, supportedformatsmap.keys()){
+        ui->comboBox_outputfile->addItem(name,mSoundFile->Supportedformats().value(name));
+    }
+
 
     //Fixes so no outputdir is shown as default
     ui->lineEdit_outputfile->clear();
